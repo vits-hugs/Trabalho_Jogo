@@ -3,6 +3,9 @@ import os
 from player import player
 
 #Criei classe inimigo
+#Essa classe vai ser usado pra ser herdada por todos os próximos inimigos
+#Ou seja ela é a base que todo inimigo vai ter
+
 class Inimigo(pygame.sprite.Sprite):
     def __init__(self,pos_x,pos_y):#Valores quando o inimigo for iniciado
         pygame.sprite.Sprite.__init__(self)#inicia como sprite
@@ -30,7 +33,7 @@ class Inimigo(pygame.sprite.Sprite):
 
     def tomarDano(self,dano):
         self.vida -= dano
-        if self.vida < 0:
+        if self.vida <= 0:
             self.image = self.morreu
             self.ISdead = True
          
