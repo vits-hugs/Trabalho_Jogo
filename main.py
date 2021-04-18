@@ -102,8 +102,7 @@ while running:
     player.update(map.tiles,enemy_Array)
     ################################# UPDATE WINDOW AND DISPLAY #################################
     
-    print(Cam_x,Cam_y)
-
+    
     # desenha numa superficie
     map.draw_map(canvas) #desenha o mapa num canvas
     player.draw(canvas)

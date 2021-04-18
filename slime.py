@@ -7,7 +7,7 @@ class Slime(Inimigo):
         super().__init__(pos_x,pos_y)
         pygame.mixer.init()
         self.vida = 3
-        self.image = pygame.image.load(os.path.join('Assets','slime.png'))
+        self.image = pygame.image.load(os.path.join('Assets','rian.jpg'))
         self.morreu = pygame.image.load(os.path.join('Assets','SlimeMorto.png'))
         self.idle = pygame.image.load(os.path.join('Assets','slime.png'))
 

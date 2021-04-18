@@ -81,16 +81,16 @@ class TileMap():
             x = 0
             for tile in row:#verfica o numero e cola na posição x
                 if tile == '-1':
-                    self.ground.append(Ground('floor_1.png', x * self.tile_size, y * self.tile_size))
+                    self.ground.append(Ground('rian.jpg', x * self.tile_size, y * self.tile_size))
                 if tile == '235':
                     self.start_x, self.start_y = x * self.tile_size, y * self.tile_size
-                    self.ground.append(Ground('floor_1.png', x * self.tile_size, y * self.tile_size))
+                    self.ground.append(Ground('rian.jpg', x * self.tile_size, y * self.tile_size))
                 elif tile == '491':
                     slimes.append(pygame.math.Vector2(x * self.tile_size, y * self.tile_size))
-                    self.ground.append(Ground('floor_1.png', x * self.tile_size, y * self.tile_size))
+                    self.ground.append(Ground('rian.jpg', x * self.tile_size, y * self.tile_size))
                 elif tile == '1':
                     inimigos.append(pygame.math.Vector2(x * self.tile_size, y * self.tile_size))
-                    self.ground.append(Ground('floor_1.png', x * self.tile_size, y * self.tile_size))
+                    self.ground.append(Ground('rian.jpg', x * self.tile_size, y * self.tile_size))
                     
                 elif tile == '33':
                     tiles.append(Tile('wall_mid.png', x * self.tile_size, y * self.tile_size))
