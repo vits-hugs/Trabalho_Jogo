@@ -1,13 +1,11 @@
 from inimigo import Inimigo
 import os,pygame
-
-#Slime herda inimigo
 class Slime(Inimigo):
     def __init__(self,pos_x,pos_y):
         super().__init__(pos_x,pos_y)
         pygame.mixer.init()
         self.vida = 3
-        self.image = pygame.image.load(os.path.join('Assets','rian.jpg'))
+        self.image = pygame.image.load(os.path.join('Assets','slime.png'))
         self.morreu = pygame.image.load(os.path.join('Assets','SlimeMorto.png'))
         self.idle = pygame.image.load(os.path.join('Assets','slime.png'))
 
@@ -26,14 +24,11 @@ class Slime(Inimigo):
         self.ISputo = False
         self.impaciencia =0
 
-    #isso da sobrecarga no metodo 
     def draw(self,display):
         display.blit(self.image,(self.rect.x,self.rect.y))    
         if self.Atacou == True and self.delay > 0:
             display.blit(self.ataq_img,(self.player.rect.x,self.player.rect.y))
             self.delay -= 1
-
-    #sobrecarga
     def move(self):
         if self.ISdead == False:
             dx = self.player.rect.x - self.rect.x 
@@ -78,7 +73,7 @@ class Slime(Inimigo):
                     self.rect.y -= 32
                     self.time = -60
      
-
+algo = pygame.image.load(os.path.join('assets','novomorre.png'))
                 
             
             

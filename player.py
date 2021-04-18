@@ -13,7 +13,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.x = pos_x 
         self.rect.y = pos_y 
 
-        #define posição do ataque
+
         self.ataqX = 1
         self.ataqY = 0
         self.ataq = False
@@ -51,7 +51,7 @@ class Player(pygame.sprite.Sprite):
     
     def tomaDano(self,dano):
         self.vida-= dano
-        if self.vida <= 0:
+        if self.vida < 0:
             self.image = pygame.image.load(os.path.join('Assets','novomorre.png'))
             self.IsVivo = False
             self.VEL = 0
@@ -141,10 +141,17 @@ class Player(pygame.sprite.Sprite):
                 enemy.tomarDano(2)
             
 
-    def coli(self,tiles): #colisão roda por um array de rects se colide o movimento cancela
+
+                
+
+
+    def coli(self,tiles):
         for tile in tiles:
             if self.rect.colliderect(tile):
                 return(True)
 
+    def Get_pos(self):
+        playerPos = pygame.math.Vector2(self.rect.x,self.rect.y)
+        return playerPos
 
 player = Player(0,0)
