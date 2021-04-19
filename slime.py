@@ -5,19 +5,19 @@ class Slime(Inimigo):
         super().__init__(pos_x,pos_y)
         pygame.mixer.init()
         self.vida = 3
-        self.image = pygame.image.load(os.path.join('Assets','slime.png'))
-        self.morreu = pygame.image.load(os.path.join('Assets','SlimeMorto.png'))
-        self.idle = pygame.image.load(os.path.join('Assets','slime.png'))
+        self.image = pygame.image.load(os.path.join('Assets','Monstros','slime.png'))
+        self.morreu = pygame.image.load(os.path.join('Assets','Monstros','SlimeMorto.png'))
+        self.idle = pygame.image.load(os.path.join('Assets','Monstros','slime.png'))
 
      
 
-        self.som = pygame.mixer.Sound(os.path.join('Assets','Nah.wav'))
+        self.som = pygame.mixer.Sound(os.path.join('Assets','Monstros','Nah.wav'))
 
 
-        self.ataq_img = pygame.image.load(os.path.join('Assets','SlimeMorto.png'))
+        self.ataq_img = pygame.image.load(os.path.join('Assets','Monstros','SlimeMorto.png'))
         self.Atacou = False
         self.delay = 0
-        self.puto = pygame.image.load(os.path.join('Assets','puto.png'))
+        self.puto = pygame.image.load(os.path.join('Assets','Monstros','Brabo.png'))
 
 
 
@@ -73,7 +73,7 @@ class Slime(Inimigo):
                     self.rect.y -= 32
                     self.time = -60
      
-algo = pygame.image.load(os.path.join('assets','novomorre.png'))
+algo = pygame.image.load(os.path.join('Assets','Monstros','novomorre.png'))
                 
             
             

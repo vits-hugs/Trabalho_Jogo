@@ -9,9 +9,7 @@ from Gerenciador import Gerenciador
 
 FPS = 60
 
-    ################################# JANELA #################################
 
-    ################################ CARREGA JANELA E RELÓGIO ###################
 pygame.init()
 DISPLAY_W, DISPLAY_H = 900, 500
 canvas = pygame.Surface((DISPLAY_W+500,DISPLAY_H+500))

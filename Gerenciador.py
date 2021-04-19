@@ -7,7 +7,7 @@ from slime import Slime
 class Gerenciador():
     def __init__(self,player):
         self.nivelCount = 0
-        self.Fases = ['test_level.csv','faz.csv']
+        self.Fases = ['test_level.csv','Fase_2.csv']
 
 
         self.player = player
@@ -99,7 +99,7 @@ class Gerenciador():
         self.window.blit(player.vidaHUD[player.vida - 1],(0,0))
         if not self.enemy_Array :
             self.fase = self.Fases[self.nivelCount]
-            self.nivelCount += 1
+            self.nivelCount +=1
             return False
 
         #atualiza tela
