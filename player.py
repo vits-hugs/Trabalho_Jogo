@@ -70,7 +70,7 @@ class Player(pygame.sprite.Sprite):
     
   
     def update(self,tiles,lista_de_Inimigo):
-
+        self.tiles = tiles
         if self.LEFT_KEY == True:# se setinha pra esquerda foi pressionada
             #troca imagem
             self.image = self.L_image

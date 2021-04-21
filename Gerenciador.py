@@ -3,7 +3,7 @@ from tiles import *
 from player import player
 from inimigo import Inimigo
 from slime import Slime
-
+from mago import mago
 class Gerenciador():
     def __init__(self,player):
         self.nivelCount = 0
@@ -28,7 +28,7 @@ class Gerenciador():
         for pos in self.map.inimigos[0]:
             self.enemy_Array.append(Slime(pos.x,pos.y))
         for pos in self.map.inimigos[1]:
-            self.enemy_Array.append(Inimigo(pos.x,pos.y))
+            self.enemy_Array.append(mago(pos.x,pos.y))
         pygame.mixer.init()
 
         musica = pygame.mixer.Sound(os.path.join('Assets','MusicaDungeon.ogg'))
@@ -37,32 +37,32 @@ class Gerenciador():
 
     def Game(self):
        
-        player.ataqDelay -= 1
-        ################################# CHECK PLAYER INPUT #################################
-        ############################# VERIFICA INPUT DO JOGADOR ####################
-        running = True
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+        # player.ataqDelay -= 1
+        # ################################# CHECK PLAYER INPUT #################################
+        # ############################# VERIFICA INPUT DO JOGADOR ####################
+        # running = True
+        # for event in pygame.event.get():
+        #     if event.type == pygame.QUIT:
+        #         running = False
     
-            #se tecla foi apertada
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT: #verifica q tecla foi
-                    player.LEFT_KEY = True
-                # Camera_x += 32
-                elif event.key == pygame.K_RIGHT: 
-                    player.RIGHT_KEY = True
-                    #Camera_x -= 32
-                elif event.key == pygame.K_DOWN:
-                    player.DOWN_KEY = True
-                # Camera_y -= 32
-                elif event.key == pygame.K_UP:
-                    player.UP_KEY = True
-                # Camera_y += 32
-                if event.key == pygame.K_j:
-                    if player.ataqDelay <= 0:
-                        player.ataq = True
-                        player.ataqDelay = 30
+        #     #se tecla foi apertada
+        #     if event.type == pygame.KEYDOWN:
+        #         if event.key == pygame.K_LEFT: #verifica q tecla foi
+        #             player.LEFT_KEY = True
+        #         # Camera_x += 32
+        #         elif event.key == pygame.K_RIGHT: 
+        #             player.RIGHT_KEY = True
+        #             #Camera_x -= 32
+        #         elif event.key == pygame.K_DOWN:
+        #             player.DOWN_KEY = True
+        #         # Camera_y -= 32
+        #         elif event.key == pygame.K_UP:
+        #             player.UP_KEY = True
+        #         # Camera_y += 32
+        #         if event.key == pygame.K_j:
+        #             if player.ataqDelay <= 0:
+        #                 player.ataq = True
+        #                 player.ataqDelay = 30
             
                     
 
@@ -104,4 +104,4 @@ class Gerenciador():
 
         #atualiza tela
         pygame.display.update()
-        return running
+        return True

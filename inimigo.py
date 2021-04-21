@@ -48,7 +48,11 @@ class Inimigo(pygame.sprite.Sprite):
         self.time -=1
     def Dardano(self,dano):
         player.vida -= dano
-        
+    def secolidiu(self):
+        for tile in player.tiles:
+            if self.rect.colliderect(tile):
+                return(True)
+
     
         
         
