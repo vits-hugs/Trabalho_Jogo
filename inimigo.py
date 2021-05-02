@@ -9,14 +9,16 @@ class Inimigo(pygame.sprite.Sprite):
         
         self.delay = 60
 
-        #self.som  = pygame.mixer.Sound(os.path.join('Assets','Jogador','Espada.wav'))
+       
 
         self.player = player
+        
         #Carrega imagem e da uma retangulo pra ela
         self.image = pygame.image.load(os.path.join('Assets','Monstros','zombie_idle_anim_f0.png'))
         self.image = pygame.transform.scale(self.image,(32,32))
         self.rect =self.image.get_rect()
         self.rect.x,self.rect.y = pos_x,pos_y
+
         self.time = 0
 
         self.morreu = pygame.image.load(os.path.join('Assets','Monstros','novomorre.png'))

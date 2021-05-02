@@ -51,7 +51,7 @@ class Player(pygame.sprite.Sprite):
     
     def tomaDano(self,dano):
         self.vida-= dano
-        if self.vida < 0:
+        if self.vida <= 0:
             self.image = pygame.image.load(os.path.join('Assets','Monstros','novomorre.png'))
             self.IsVivo = False
             self.VEL = 0
