@@ -11,6 +11,7 @@ class Tile(pygame.sprite.Sprite):
         # Manual load in: self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
+    
 
        
 
@@ -35,6 +36,7 @@ class TileMap():
         self.inimigos = []
         self.tile_size = 32
         self.start_x, self.start_y = 0, 0
+        self.limit = pygame.math.Vector2(0,0)
 
        
        # self.spritesheet = spritesheet
@@ -91,12 +93,15 @@ class TileMap():
                     tiles.append(Tile('wall_mid.png', x * self.tile_size, y * self.tile_size))
                 elif tile == '67':
                     tiles.append(Tile('wall_banner_green.png', x * self.tile_size, y * self.tile_size))
+                else:
+                    self.ground.append(Ground('floor_1.png', x * self.tile_size, y * self.tile_size))
                     # Move to next tile in current row
                 x += 1
 
             # Move to next row
             y += 1
             # Store the size of the tile map
+        #self.limit = (x*32-14*32,y*32)
         self.map_w, self.map_h = x * self.tile_size, y * self.tile_size
         self.inimigos.append(slimes)
         self.inimigos.append(inimigos)

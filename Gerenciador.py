@@ -30,45 +30,15 @@ class Gerenciador():
         for pos in self.map.inimigos[1]:
             self.enemy_Array.append(mago(pos.x,pos.y))
         pygame.mixer.init()
+        
+        pygame.mixer.music.load(os.path.join('Assets','MusicaDungeon.ogg'))
 
-        musica = pygame.mixer.Sound(os.path.join('Assets','MusicaDungeon.ogg'))
-        musica.play()
+        pygame.mixer.music.play()
 
 
     def Game(self):
        
-        # player.ataqDelay -= 1
-        # ################################# CHECK PLAYER INPUT #################################
-        # ############################# VERIFICA INPUT DO JOGADOR ####################
-        # running = True
-        # for event in pygame.event.get():
-        #     if event.type == pygame.QUIT:
-        #         running = False
-    
-        #     #se tecla foi apertada
-        #     if event.type == pygame.KEYDOWN:
-        #         if event.key == pygame.K_LEFT: #verifica q tecla foi
-        #             player.LEFT_KEY = True
-        #         # Camera_x += 32
-        #         elif event.key == pygame.K_RIGHT: 
-        #             player.RIGHT_KEY = True
-        #             #Camera_x -= 32
-        #         elif event.key == pygame.K_DOWN:
-        #             player.DOWN_KEY = True
-        #         # Camera_y -= 32
-        #         elif event.key == pygame.K_UP:
-        #             player.UP_KEY = True
-        #         # Camera_y += 32
-        #         if event.key == pygame.K_j:
-        #             if player.ataqDelay <= 0:
-        #                 player.ataq = True
-        #                 player.ataqDelay = 30
-            
-                    
 
-            
-        ## Camera
-    
         
         self.cam.x += ((self.Display_W/2 - player.rect.x)-self.cam.x)*0.05
         self.cam.y +=  ((self.Display_H/2  -player.rect.y)-self.cam.y)*0.05
@@ -77,22 +47,32 @@ class Gerenciador():
         if self.cam.y > 0:
             self.cam.y = 0
 
+        if self.cam.x < -1*(self.Display_W/2)+13*32 :
+            self.cam.x = -1*(self.Display_W/2)+13*32 
+        if self.cam.y < -(self.Display_H/2)+4*32 :
+            self.cam.y = -(self.Display_H/2)+4*32 
+        
+
+
         
         #Camera_x,Camera_y  = 
         ################################# UPDATE/ Animate SPRITE #################################
         player.update(self.map.tiles,self.enemy_Array)
         ################################# UPDATE self.window AND DISPLAY #################################
-    
+       
 
         # desenha numa superficie
         self.map.draw_map(self.canvas)
         player.draw(self.canvas)
-        
-
         for enemy in self.enemy_Array:
             enemy.draw(self.canvas)
             enemy.move()
-
+        
+         
+        if player.ataqDelay > 0:
+            self.canvas.blit(player.ataq_img,player.ataqPos)
+         
+       
 
         #bota a superficie na telaj
         self.window.blit(self.canvas,(self.cam.x,self.cam.y))

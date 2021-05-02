@@ -52,7 +52,7 @@ class Player(pygame.sprite.Sprite):
     def tomaDano(self,dano):
         self.vida-= dano
         if self.vida < 0:
-            self.image = pygame.image.load(os.path.join('Assets','novomorre.png'))
+            self.image = pygame.image.load(os.path.join('Assets','Monstros','novomorre.png'))
             self.IsVivo = False
             self.VEL = 0
             print('morreu')
@@ -136,9 +136,11 @@ class Player(pygame.sprite.Sprite):
         self.ataqPos = pygame.math.Vector2(self.rect.x+(32*self.ataqX),self.rect.y+(32*self.ataqY))
         for enemy in lista_de_Inimigo:
             if pygame.Rect.collidepoint(enemy.rect,self.ataqPos) == True:
+                
                 if enemy.ISdead:
                     lista_de_Inimigo.remove(enemy)
-                enemy.tomarDano(2)
+                enemy.tomarDano(1)
+        self.ataq = False
             
 
 

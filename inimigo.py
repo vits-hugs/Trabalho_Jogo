@@ -30,7 +30,7 @@ class Inimigo(pygame.sprite.Sprite):
 
     def tomarDano(self,dano):
         self.vida -= dano
-        if self.vida < 0:
+        if self.vida <= 0:
             self.image = self.morreu
             self.ISdead = True
          
@@ -49,10 +49,12 @@ class Inimigo(pygame.sprite.Sprite):
     def Dardano(self,dano):
         player.vida -= dano
     def secolidiu(self):
+        if self.rect.colliderect(player):
+            return(True)
         for tile in player.tiles:
             if self.rect.colliderect(tile):
                 return(True)
-
+        
     
         
         

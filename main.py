@@ -19,20 +19,23 @@ window = pygame.display.set_mode(((DISPLAY_W,DISPLAY_H)))
 running = True
 Grc = Gerenciador(player)
 
-while running:
+while running==True:
     
     clock = pygame.time.Clock()
    
     Grc.Faz_mapa(window,canvas)  
     infaze = True
+    
     ################################# GAME LOOP ##########################
     while infaze:
         player.ataqDelay -= 1
         ################################# CHECK PLAYER INPUT #################################
         ############################# VERIFICA INPUT DO JOGADOR ####################
-        running = True
+        
         for event in pygame.event.get():
+            
             if event.type == pygame.QUIT:
+    
                 running = False
     
             #se tecla foi apertada
@@ -56,5 +59,9 @@ while running:
         
         dt = clock.tick(60) * .001 * FPS
         infaze = Grc.Game()
-        
+    
+
+        if running == False:
+            infaze = False
+    
         
