@@ -9,7 +9,10 @@ class Gerenciador():
         self.nivelCount = 0
         self.Fases = ['test_level.csv','Fase_2.csv']
 
+        self.lose= pygame.image.load(os.path.join('assets','yolose.fw.png'))
+        self.victory = pygame.image.load(os.path.join('assets','victory.fw.png'))
 
+        self.restart = False    
         self.player = player
         self.cam = pygame.math.Vector2(0,0)
     
@@ -78,9 +81,22 @@ class Gerenciador():
         self.window.blit(self.canvas,(self.cam.x,self.cam.y))
         self.window.blit(player.vidaHUD[player.vida - 1],(0,0))
         if not self.enemy_Array :
-            self.fase = self.Fases[self.nivelCount]
-            self.nivelCount +=1
-            return False
+            if len(self.Fases) == self.nivelCount:
+                self.window.blit(self.victory,(0,0))
+            else:
+                self.fase = self.Fases[self.nivelCount]
+                self.nivelCount +=1
+                return False
+        if self.restart == True:
+            self.fase = 'faz.csv'
+            self.nivelCount = 0
+            player.vida = 3
+            self.restart = False
+            self.enemy_Array = []
+            self.tiles = []
+            return False 
+        if player.IsVivo == False:
+            self.window.blit(self.lose,(0,0))
 
         #atualiza tela
         pygame.display.update()

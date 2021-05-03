@@ -12,7 +12,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = pos_x 
         self.rect.y = pos_y 
-
+        self.tomadano = pygame.mixer.Sound(os.path.join('Assets','Jogador','Nah.wav'))
 
         self.ataqX = 1
         self.ataqY = 0
@@ -50,13 +50,14 @@ class Player(pygame.sprite.Sprite):
         self.IsVivo = True
     
     def tomaDano(self,dano):
-        self.vida-= dano
-        if self.vida <= 0:
+        if self.vida > 0:
+            self.tomadano.play()
+            self.vida-= dano
+        if self.vida <= 0: 
+            self.vida = 0
             self.image = pygame.image.load(os.path.join('Assets','Monstros','novomorre.png'))
             self.IsVivo = False
             self.VEL = 0
-            print('morreu')
-
     #desenha player na tela
     def draw(self,display):
         
@@ -131,7 +132,6 @@ class Player(pygame.sprite.Sprite):
             
 
     def Ataque(self,lista_de_Inimigo):
-        print("IIIAAAA")
         self.som.play()
         self.ataqPos = pygame.math.Vector2(self.rect.x+(32*self.ataqX),self.rect.y+(32*self.ataqY))
         for enemy in lista_de_Inimigo:
@@ -152,8 +152,8 @@ class Player(pygame.sprite.Sprite):
             if self.rect.colliderect(tile):
                 return(True)
 
-    def Get_pos(self):
-        playerPos = pygame.math.Vector2(self.rect.x,self.rect.y)
-        return playerPos
+    #def Get_pos(self):
+     #   playerPos = pygame.math.Vector2(self.rect.x,self.rect.y)
+      #  return playerPos
 
 player = Player(0,0)

@@ -11,7 +11,7 @@ class Slime(Inimigo):
 
      
 
-        self.som = pygame.mixer.Sound(os.path.join('Assets','Monstros','Nah.wav'))
+        self.som = pygame.mixer.Sound(os.path.join('Assets','Monstros','somslime.wav'))
 
 
         self.ataq_img = pygame.image.load(os.path.join('Assets','Monstros','SlimeMorto.png'))
@@ -53,7 +53,8 @@ class Slime(Inimigo):
                 self.image = self.puto
                 self.impaciencia += 1
                 if self.impaciencia >=45:
-                    self.som.play()
+                    if self.player.IsVivo == True:
+                        self.som.play()
                     self.delay =15
                     self.player.tomaDano(1)
                     self.impaciencia = 0
@@ -75,8 +76,3 @@ class Slime(Inimigo):
      
 algo = pygame.image.load(os.path.join('Assets','Monstros','novomorre.png'))
                 
-            
-            
-            
-            
-            

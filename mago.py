@@ -3,7 +3,7 @@ import os
 from inimigo import Inimigo #Importa a classe Inimigo para herdar métodos
 from player import player  #Importa o objeto player
 
-class Mago(Inimigo): #Criada a classe Mago, que irá herdar definições da classe Inimigo
+class mago(Inimigo): #Criada a classe Mago, que irá herdar definições da classe Inimigo
     def __init__(self,pos_x,pos_y):  # Metodo Construtor, que primeiramente recebe o parametro self, e pos_x e pos_y (posicão inicial do mago)
         super().__init__(pos_x,pos_y) #Pega o mesmo metodo construtor da classe "Superior" ( que seria o inimigo )
         pygame.mixer.init() #Para utilizar sons
@@ -12,7 +12,9 @@ class Mago(Inimigo): #Criada a classe Mago, que irá herdar definições da clas
         self.image = pygame.image.load(os.path.join('Assets','Monstros','mago.png')) #Aqui vamos atribuir a imagem do mago
         self.image = pygame.transform.scale(self.image,(32,32)) #Atributo que vai redimencionar a imagem do Mago para caber em um tile do terreno
         self.tiro = Tiro(0,0) #Instanciando o tiro
-
+        self.som = pygame.mixer.Sound(os.path.join('Assets','Monstros','ataquemago.wav'))
+        self.morreu = pygame.image.load(os.path.join('Assets','Monstros','fogo.png'))
+        self.morreu = pygame.transform.scale(self.morreu,(32,32))
     def move(self): #Metodo de controle do movimento do Mago e do tiro (Controla a lógica do mago)
         #Pega o atributo de posição do retangulo do player e do retangulo do Mago
         if self.ISdead == False: #Enquanto o mago estiver vivo
@@ -51,6 +53,8 @@ class Mago(Inimigo): #Criada a classe Mago, que irá herdar definições da clas
             self.time -= 1 #Diminuição do delay do movimento
 
             if self.delay < 0: #Booleano para controlar o delay do tiro
+                if self.player.IsVivo:
+                    self.som.play()
                 self.delay = 120
                 self.tiro = Tiro(self.rect.x,self.rect.y,self.tirox,self.tiroy) #Instancia um novo tiro baseado na posição Mago
             self.delay -= 1  #Diminuição do delay do tiro

@@ -14,7 +14,7 @@ pygame.init()
 DISPLAY_W, DISPLAY_H = 900, 500
 canvas = pygame.Surface((DISPLAY_W+500,DISPLAY_H+500))
 window = pygame.display.set_mode(((DISPLAY_W,DISPLAY_H)))
-
+restart = False
 
 running = True
 Grc = Gerenciador(player)
@@ -56,6 +56,9 @@ while running==True:
                     if player.ataqDelay <= 0:
                         player.ataq = True
                         player.ataqDelay = 30
+                if event.key == pygame.K_r:
+                    Grc.restart = True
+
         
         dt = clock.tick(60) * .001 * FPS
         infaze = Grc.Game()
@@ -63,5 +66,6 @@ while running==True:
 
         if running == False:
             infaze = False
-    
+        
+            
         
