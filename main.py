@@ -52,7 +52,7 @@ while running==True:
                 elif event.key == pygame.K_UP:
                     player.UP_KEY = True
                 # Camera_y += 32
-                if event.key == pygame.K_j:
+                if event.key == pygame.K_SPACE:
                     if player.ataqDelay <= 0:
                         player.ataq = True
                         player.ataqDelay = 30
