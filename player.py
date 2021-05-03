@@ -57,7 +57,7 @@ class Player(pygame.sprite.Sprite):
             self.vida = 0
             self.image = pygame.image.load(os.path.join('Assets','Monstros','novomorre.png'))
             self.IsVivo = False
-            self.VEL = 0
+        
     #desenha player na tela
     def draw(self,display):
         

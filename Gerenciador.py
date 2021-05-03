@@ -87,17 +87,19 @@ class Gerenciador():
                 self.fase = self.Fases[self.nivelCount]
                 self.nivelCount +=1
                 return False
+        
+        if player.IsVivo == False:
+            self.window.blit(self.lose,(0,0))
         if self.restart == True:
+                    
             self.fase = 'faz.csv'
             self.nivelCount = 0
             player.vida = 3
-            self.restart = False
+            player.IsVivo = True
+            self.restart = False                    
             self.enemy_Array = []
             self.tiles = []
             return False 
-        if player.IsVivo == False:
-            self.window.blit(self.lose,(0,0))
-
         #atualiza tela
         pygame.display.update()
         return True
