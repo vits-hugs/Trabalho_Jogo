@@ -7,21 +7,21 @@ class Player(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)#inicia como sprite
         pygame.mixer.init()
         #Carrega imagem e da uma retangulo pra ela
-        self.image = pygame.image.load(os.path.join('Assets','Jogador','player.png'))
+        self.image = pygame.image.load(os.path.join('assets','Jogador','player.png'))
         self.image = pygame.transform.scale(self.image,(32,32))
         self.rect = self.image.get_rect()
         self.rect.x = pos_x 
         self.rect.y = pos_y 
-        self.tomadano = pygame.mixer.Sound(os.path.join('Assets','Jogador','Nah.wav'))
+        self.tomadano = pygame.mixer.Sound(os.path.join('assets','Jogador','Nah.wav'))
 
         self.ataqX = 1
         self.ataqY = 0
         self.ataq = False
-        self.ataq_img = pygame.image.load(os.path.join('Assets','Jogador','Ataq.png'))
+        self.ataq_img = pygame.image.load(os.path.join('assets','Jogador','Ataq.png'))
         self.ataqPos = pygame.math.Vector2(0,0)
         self.ataqDelay = 0
         self.delay =0
-        self.som = pygame.mixer.Sound(os.path.join('Assets','Jogador','Espada.wav'))
+        self.som = pygame.mixer.Sound(os.path.join('assets','Jogador','Espada.wav'))
 
         #verific inputs
         self.LEFT_KEY, self.RIGHT_KEY ,self.UP_KEY ,self.DOWN_KEY = False,False,False,False
@@ -31,10 +31,10 @@ class Player(pygame.sprite.Sprite):
         
 
         #troca as imagens
-        self.R_image = pygame.image.load(os.path.join('Assets','Jogador','Idle_R.png'))
-        self.L_image = pygame.image.load(os.path.join('Assets','Jogador','Idle_L.png'))
-        self.Up_image = pygame.image.load(os.path.join('Assets','Jogador','Idle_Up.png'))
-        self.D_image = pygame.image.load(os.path.join('Assets','Jogador','Idle_D.png'))
+        self.R_image = pygame.image.load(os.path.join('assets','Jogador','Idle_R.png'))
+        self.L_image = pygame.image.load(os.path.join('assets','Jogador','Idle_L.png'))
+        self.Up_image = pygame.image.load(os.path.join('assets','Jogador','Idle_UP.png'))
+        self.D_image = pygame.image.load(os.path.join('assets','Jogador','Idle_D.png'))
         
         #deixa elas no tamanho certo
         self.R_image = pygame.transform.scale(self.R_image,(32,32))
@@ -45,7 +45,7 @@ class Player(pygame.sprite.Sprite):
         #STATUS
         self.VEL = 32 #velocidade
 
-        self.vidaHUD = [pygame.image.load(os.path.join('Assets','Jogador','Vida1.png')),pygame.image.load(os.path.join('Assets','Jogador','Vida2.png')),pygame.image.load(os.path.join('Assets','Jogador','VidaCheia.png'))]
+        self.vidaHUD = [pygame.image.load(os.path.join('assets','Jogador','Vida1.png')),pygame.image.load(os.path.join('assets','Jogador','Vida2.png')),pygame.image.load(os.path.join('assets','Jogador','VidaCheia.png'))]
         self.vida = 3 #vida
         self.IsVivo = True
     
@@ -55,7 +55,7 @@ class Player(pygame.sprite.Sprite):
             self.vida-= dano
         if self.vida <= 0: 
             self.vida = 0
-            self.image = pygame.image.load(os.path.join('Assets','Monstros','novomorre.png'))
+            self.image = pygame.image.load(os.path.join('assets','Monstros','novomorre.png'))
             self.IsVivo = False
         
     #desenha player na tela

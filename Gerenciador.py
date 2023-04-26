@@ -34,7 +34,7 @@ class Gerenciador():
             self.enemy_Array.append(mago(pos.x,pos.y))
         pygame.mixer.init()
         
-        pygame.mixer.music.load(os.path.join('Assets','MusicaDungeon.ogg'))
+        pygame.mixer.music.load(os.path.join('assets','MusicaDungeon.ogg'))
 
         pygame.mixer.music.play()
 

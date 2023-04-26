@@ -13,7 +13,7 @@ class Inimigo(pygame.sprite.Sprite):
         self.player = player
         
         #Carrega imagem e da uma retangulo pra ela
-        self.image = pygame.image.load(os.path.join('Assets','Monstros','zombie_idle_anim_f0.png'))
+        self.image = pygame.image.load(os.path.join('assets','Monstros','zombie_idle_anim_f0.png'))
         self.image = pygame.transform.scale(self.image,(32,32))
         self.rect = self.image.get_rect()
         self.rect.x,self.rect.y = pos_x,pos_y
@@ -39,7 +39,7 @@ class Inimigo(pygame.sprite.Sprite):
             if self.rect.colliderect(tile):
                 return(True)
         #Carrega imagem e da uma retangulo pra ela
-        self.image = pygame.image.load(os.path.join('Assets','Monstros','zombie_idle_anim_f0.png'))
+        self.image = pygame.image.load(os.path.join('assets','Monstros','zombie_idle_anim_f0.png'))
         self.image = pygame.transform.scale(self.image,(32,32))
         self.rect = self.image.get_rect()
         self.rect.x,self.rect.y = pos_x,pos_y

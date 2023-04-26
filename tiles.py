@@ -6,7 +6,7 @@ import inimigo
 class Tile(pygame.sprite.Sprite):
     def __init__(self, image, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load(os.path.join('Assets',image))
+        self.image = pygame.image.load(os.path.join('assets',image))
         self.image = pygame.transform.scale(self.image,(32,32))
         # Manual load in: self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()
@@ -22,7 +22,7 @@ class Tile(pygame.sprite.Sprite):
 class Ground(pygame.sprite.Sprite):
     def __init__(self, image, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load(os.path.join('Assets',image))
+        self.image = pygame.image.load(os.path.join('assets',image))
         self.image = pygame.transform.scale(self.image,(32,32))
         self.x,self.y = x,y
         # Manual load in: self.image = pygame.image.load(image)

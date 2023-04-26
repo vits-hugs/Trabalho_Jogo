@@ -9,11 +9,11 @@ class mago(Inimigo): #Criada a classe Mago, que irá herdar definições da clas
         pygame.mixer.init() #Para utilizar sons
         self.delay = 120 #Variável para controlar o delay nos tiros (2 segundos)
         self.vida = 2 #Atributo vida que recebe "2" como número de vidas
-        self.image = pygame.image.load(os.path.join('Assets','Monstros','mago.png')) #Aqui vamos atribuir a imagem do mago
+        self.image = pygame.image.load(os.path.join('assets','Monstros','mago.png')) #Aqui vamos atribuir a imagem do mago
         self.image = pygame.transform.scale(self.image,(32,32)) #Atributo que vai redimencionar a imagem do Mago para caber em um tile do terreno
         self.tiro = Tiro(0,0) #Instanciando o tiro
-        self.som = pygame.mixer.Sound(os.path.join('Assets','Monstros','ataquemago.wav'))
-        self.morreu = pygame.image.load(os.path.join('Assets','Monstros','fogo.png'))
+        self.som = pygame.mixer.Sound(os.path.join('assets','Monstros','ataquemago.wav'))
+        self.morreu = pygame.image.load(os.path.join('assets','Monstros','fogo.png'))
         self.morreu = pygame.transform.scale(self.morreu,(32,32))
     def move(self): #Metodo de controle do movimento do Mago e do tiro (Controla a lógica do mago)
         #Pega o atributo de posição do retangulo do player e do retangulo do Mago
@@ -68,7 +68,7 @@ class Tiro (pygame.sprite.Sprite): #Classe tiro
    def __init__(self,posx,posy,linha=0,coluna=0): #Método Construtor, que define a posição e a direção  
         self.linha = linha #Função Velocidade horizontal do tiro 
         self.coluna = coluna #Função Velocidade vertical do tiro 
-        self.imagemtiro = pygame.image.load(os.path.join('Assets','Monstros','Fireball.png')) #Aqui vamos atribuir a imagem do tiro
+        self.imagemtiro = pygame.image.load(os.path.join('assets','Monstros','Fireball.png')) #Aqui vamos atribuir a imagem do tiro
         self.imagemtiro = pygame.transform.scale(self.imagemtiro,(16,16)) #Atributo que vai redimencionar a imagem do tiro para caber em um quarto do tile do terreno
         self.rect = self.imagemtiro.get_rect()  #Função para calcular o retangulo da imagemtiro  
         self.rect.x, self.rect.y = posx, posy+8 #Faz a posição do tiro no meio do mago
